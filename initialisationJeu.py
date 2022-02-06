@@ -3,7 +3,7 @@ def InitJoueur():
     nombre_de_joueur = ""
     while not isinstance(nombre_de_joueur, int) or not 1<nombre_de_joueur<=6:
         try:
-            nombre_de_joueur = int(input("entre le nobre de joueur : "))
+            nombre_de_joueur = int(input("Entrez le nombre de joueur : "))
         except ValueError:
             print("La valeur doit etre un nombre entier")
             continue
