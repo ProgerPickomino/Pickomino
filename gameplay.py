@@ -1,28 +1,34 @@
 import random as rm
 
-def LenserDes(fase_du_des, nobre_de_des):
+#cette fonction est faite de facon a lancer un seul des plusieurs fois et noter le nombre aui sort
+def LenserDes(face_du_des, nobre_de_des):
     """
-    list X dic X int --> dict
+    list X int --> dict
+    Fonction qui  renvoit une liste des valeurs affichees et leurs occurences apres le lance de des
     """
-    dic_du_lenser = {}
+    #face des c'est les des disponibles
+    #on ne peut pas mettre de valeurs par defauts parce que les des disponibles changent 
+    dic_du_lancer = {}
     for f in range(nobre_de_des):
-        chois_du_des = rm.choice(fase_du_des)
-        dic_du_lenser[chois_du_des] = dic_du_lenser.get(chois_du_des ,0) + 1
-    return dic_du_lenser
+        chois_du_des = rm.choice(face_du_des) #prend une seule valeur
+        dic_du_lancer[chois_du_des] = dic_du_lancer.get(chois_du_des ,0) + 1 #sauvegarde l'occurence des valeurs
+    return dic_du_lancer
 
-def PosibliterDeJeux(lenser, dic_des_retenu):
+def PosibliterDeJeux(lancer, dic_des_retenu): # renvoit la liste des des que le joueur peut pendre
     """
     dic --> list
     """
-    des_posible_a_recuper = []
-    for i in lenser:
+    des_possible_a_recuper = []
+    for i in lancer:
             if i not in dic_des_retenu:
-                des_posible_a_recuper.append(i)
-    return des_posible_a_recuper
+                des_possible_a_recuper.append(i)
+    return des_possible_a_recuper
 
-def Recuperations(des_posible_a_recuper):
+def Recuperations(des_possible_a_recuper): #avec cette fonction on peut recuperer un seul des a la fois ? 
+#pourquoi ne fait pas une liste avec les des que le joueur peut recuperer
+#on fait une boucle et a chaque fois on rajoute a la liste la valeur seisie au clavier
     """
-    list -->
+    List -->  Str | Int
     """
     des_recuper = None
     while des_recuper not in des_posible_a_recuper:
@@ -43,8 +49,11 @@ def ScoreJouer(dic_des_retenu):
         for fac in dic_des_retenu:
             score = score + fac*dic_des_retenu[fac]
         return score
-    return "Echeque vous ne posédéer pas de veres."
-
+    return "Echec vous ne possedez pas de verres."
+def Affiche_des(des_affiches):
+    '''dic --> None'''
+    for v in des_affiches:
+        print(des_affiches['v'])
 
 def TourDuJouer():
     """
