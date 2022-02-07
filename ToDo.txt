@@ -1,0 +1,4 @@
+Afficher les dominos pour chaque joueurs
+retourner le dernier dominos
+gerer le score quend il est >35 <21 
+gerer la selection de sdominos (quand une valeur est sortie on peut prendre que les dominos qui sont inferieur)

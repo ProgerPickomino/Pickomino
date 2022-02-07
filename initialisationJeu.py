@@ -12,3 +12,5 @@ def InitJoueur():
         nom_du_joueur = input(f"nom du joueur {i+1} : ")
         liste_des_joueur.append([nom_du_joueur, []])
     return liste_des_joueur
+
+
