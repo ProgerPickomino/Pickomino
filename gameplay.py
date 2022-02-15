@@ -84,4 +84,3 @@ def TourDuJouer():
     return ScoreJouer(dic_des_retenu)
 #la on affiche les pickominos du plateau et ceux des autres joueurs puis on fait une fonction pour selectionner les pickominos
 #fonction qui cache les pickominos sauf le dernier et fonction qui retourne le dernier pickomino
-print(TourDuJouer())
