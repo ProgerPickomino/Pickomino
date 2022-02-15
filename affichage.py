@@ -23,3 +23,32 @@ def affichage_dominos(Liste):
         print(' |',Liste[i][1],'|  ', end = '')  
     print(' ')
     print(' -----  '*len(Liste), end='') 
+
+def affiche_des(lance_de_des):
+    list_des = []
+    """ 
+    Dic --> None
+    """
+    for des in lance_de_des :
+        for i in range(lance_de_des[des]):
+            list_des.append(des)
+    print(list_des) 
+
+def dominos_caches(list_dominos, dernier_visible = True):
+    '''
+    List x Bool --> List
+    masque tous les dominos du joueur sauf le dernier
+    '''
+    if dernier_visible:
+        nb_dominos_caches = len(list_dominos)-1
+    else :
+        nb_dominos_caches = len(list_dominos)
+    dernier_dominos = list_dominos[-1]
+    l_dominos_caches = [('# ', '#') for i in range(nb_dominos_caches)]
+    l_dominos_caches.append(dernier_dominos)
+    return l_dominos_caches
+
+affichage_dominos(dominos_caches([(29, 3), (30, 3), (31, 3), (32, 3), (33, 4), (34, 4), (35, 4), (36, 4)]))
+
+
+#fonction qui affiche les dominos retournes
