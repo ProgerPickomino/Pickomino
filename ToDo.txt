@@ -1,4 +1,4 @@
-Afficher les dominos pour chaque joueurs
-retourner le dernier dominos
-gerer le score quend il est >35 <21 
+Afficher les dominos pour chaque joueurs reste plus qu'a l'implementer dans la fonction principale
+retourner le dernier dominos done
+gerer le score quand il est >35 <21 
 gerer la selection de sdominos (quand une valeur est sortie on peut prendre que les dominos qui sont inferieur)
