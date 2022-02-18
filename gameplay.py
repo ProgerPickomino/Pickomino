@@ -48,7 +48,7 @@ def ScoreJouer(dic_des_retenu):
 
 def TourDuJouer():
     """
-    list X str --> None
+    list X str --> int | str
     """
     continue_a_jouer = True
     nobre_de_des = 8
@@ -66,6 +66,9 @@ def TourDuJouer():
         des_recuper = Recuperations(des_posible_a_recuper)
         dic_des_retenu[des_recuper] = lenser[des_recuper]
         nobre_de_des -= lenser[des_recuper]
+        if nobre_de_des == 0:
+            continue_a_jouer = False
+            break
         veut_tu_continuser = ""
         while veut_tu_continuser not in ("oui", "non"):
             veut_tu_continuser = input("veut tu continuer a jouer [oui/non] : ")
@@ -73,7 +76,3 @@ def TourDuJouer():
             continue_a_jouer = False
     return ScoreJouer(dic_des_retenu)
 
-
-
-
-print(TourDuJouer())

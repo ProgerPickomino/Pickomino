@@ -1,9 +1,33 @@
-import initialisationJeu as ij
+from initialisationJeu import *
+import pioche
+import perdant
+import gameplay as g
 from afichage import *
-def JeuPlusieurJourer():
-    jetons_en_jeux = [(21, 1), (22, 1), (23, 1), (24, 1), (25, 2), (26, 2), (27, 2), (28, 2), (29, 3), (30, 3), (31, 3), (32, 3), (33, 4), (34, 4), (35, 4), (36, 4)]
-    jetons_retourner = 0
-    liste_des_joueur = ij.InitJoueur()
-    AficheJoueur(liste_des_joueur)
 
+def JeuPlusieurJourer():
+    nombre_de_toure = 0
+    while jetons_en_jeux != []:
+        indix_jouer = nombre_de_toure%4
+        print("au tour du joueur", liste_des_joueur[indix_jouer][0])
+        AfficheJoueur(liste_des_joueur)
+        affichage_dominos(jetons_en_jeux)
+        print("")
+        score = g.TourDuJouer()
+        if isinstance(score, str):
+            perdant.PartiePerdu(score)
+        else:
+            indice_p = pioche.RechercheP(jetons_en_jeux, score)
+            if isinstance(indice_p, str):
+                perdant.PartiePerdu(indice_p)
+        if not isinstance(score, str) and not isinstance(indice_p, str):
+            liste_p = jetons_en_jeux[:indice_p+1]
+            liste_posibliliter = pioche.PiquerPckomino(liste_p, score)
+            if not isinstance(score, str):
+                print(liste_posibliliter)
+                pioche.RecupePickomino(indix_jouer, liste_posibliliter)
+            else:
+                print(score)
+                print(liste_posibliliter)
+
+        nombre_de_toure +=1
 JeuPlusieurJourer()
