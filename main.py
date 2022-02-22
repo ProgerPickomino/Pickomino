@@ -22,7 +22,7 @@ def JeuPlusieurJourer():
         if not isinstance(score, str) and not isinstance(indice_p, str):
             liste_p = jetons_en_jeux[:indice_p+1]
             liste_posibliliter = pioche.PiquerPckomino(liste_p, score)
-            if not isinstance(score, str):
+            if not isinstance(liste_posibliliter, str):
                 print(liste_posibliliter)
                 pioche.RecupePickomino(indix_jouer, liste_posibliliter)
             else:
