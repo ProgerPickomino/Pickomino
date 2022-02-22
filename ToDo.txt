@@ -1,4 +1,10 @@
 Afficher les dominos pour chaque joueurs reste plus qu'a l'implementer dans la fonction principale
-retourner le dernier dominos done
-gerer le score quand il est >35 <21 
-gerer la selection de sdominos (quand une valeur est sortie on peut prendre que les dominos qui sont inferieur)
+
+pour rendre le jeu plus difficile on prend le pickomino de valeur plus faible
+les objets peuvent etre des joueurs
+on peut faire joueur humains
+joueur/ordi
+entre IA ?
+faire plusierus tests (jeux de tests) enfaite on fait en sorte de tester le programme pour voir si il bug on va dire nekhed3o jeu bech nchofo 
+comment le programme reagis a ces situations, situation particuliere.
+bureau 814h
