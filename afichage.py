@@ -2,13 +2,13 @@ from initialisationJeu import *
 def AfficheJoueur(liste_des_joueur):
     for i in range(len(liste_des_joueur)):
         print(liste_des_joueur[i])
-        """
+        
         print(liste_des_joueur[i][0], ":", end = "")
         if len(liste_des_joueur[i][1]) == 0:
             print("Le joueur n'a pas de jetons")
         else:
             print("Son jetons le plus haut et :", liste_des_joueur[i][1][-1], "sons nombre de jetons et de", len(liste_des_joueur[i][1]))
-"""
+
 def affichage_dominos(Liste):
     """List --> None 
     affiche les dominos
