@@ -1,5 +1,6 @@
 import pioche
 from initialisationJeu import *
+jetons_retourner = 0
 RePlacerDomino = lambda : jetons_en_jeux.insert(pioche.RechercheP(jetons_en_jeux, liste_des_joueur[indix_jouer][1][-1][0]), liste_des_joueur[indix_jouer][1][-1])
 def PartiePerdu(ereure):
     print(ereure)

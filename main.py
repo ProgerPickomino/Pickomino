@@ -6,10 +6,11 @@ from afichage import *
 
 def JeuPlusieurJourer():
     nombre_de_toure = 0
+    
     while jetons_en_jeux != []:
-        indix_jouer = nombre_de_toure%4
+        indix_jouer = nombre_de_toure%len(liste_des_joueur)
         print("au tour du joueur", liste_des_joueur[indix_jouer][0])
-        AfficheJoueur(liste_des_joueur)
+        AfficheJoueur()
         affichage_dominos(jetons_en_jeux)
         print("")
         score = g.TourDuJouer()
@@ -20,7 +21,8 @@ def JeuPlusieurJourer():
             if isinstance(indice_p, str):
                 perdant.PartiePerdu(indice_p)
         if not isinstance(score, str) and not isinstance(indice_p, str):
-            liste_p = jetons_en_jeux[:indice_p+1]
+            print(indice_p+1)
+            liste_p = jetons_en_jeux[:indice_p]
             liste_posibliliter = pioche.PiquerPckomino(liste_p, score)
             if not isinstance(liste_posibliliter, str):
                 print(liste_posibliliter)

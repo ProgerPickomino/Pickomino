@@ -7,14 +7,15 @@ def RechercheP(liste_p, score):
         return score
     appartient = False
     inf , sup = 0, len ( liste_p ) - 1
+    med = len(liste_p)//2
     while inf <= sup and not ( appartient ) :
         med = ( inf + sup )//2
-        if liste_p [med][0] == score :
-            appartient = True
+        if liste_p[med][0] == score or inf == sup:
+            return med
         elif liste_p [med][0] > score :
-            sup = med - 1
+            sup = med
         else :
-            inf = med + 1
+            inf = med
     return sup
 
 def PiquerPckomino(liste_p, score):
@@ -43,7 +44,7 @@ def RecupePickomino(indice_joureur, pickomino_disponible):
             liste_des_joueur[indice_joureur][1].append(liste_des_joueur[i][1].pop())
             break
     if selections in liste_des_valeur_posible:
-        indice_s = jetons_en_jeux.pop(RechercheP(jetons_en_jeux, selections))
+        indice_s = jetons_en_jeux.pop(RechercheP(jetons_en_jeux, selections)-1)
         liste_des_joueur[indice_joureur][1].append(indice_s)
 
 

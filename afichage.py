@@ -1,5 +1,5 @@
 from initialisationJeu import *
-def AfficheJoueur(liste_des_joueur):
+def AfficheJoueur():
     for i in range(len(liste_des_joueur)):
         print(liste_des_joueur[i])
         

@@ -35,7 +35,7 @@ def Recuperations(des_posible_a_recuper):
                 continue
     return des_recuper
 
-def ScoreJouer(dic_des_retenu):
+def ScoreJouerFinale(dic_des_retenu):
     score = 0
     if "veres" in dic_des_retenu.keys():
         score = score + dic_des_retenu["veres"]*5
@@ -45,6 +45,14 @@ def ScoreJouer(dic_des_retenu):
         return score
     return "Echeque vous ne posédéer pas de veres."
 
+def ScoreJouer(dic_des_retenu):
+    score = 0
+    if "veres" in dic_des_retenu.keys():
+        score = score + dic_des_retenu["veres"]*5
+    for fac in dic_des_retenu:
+        if fac != "veres":
+            score = score + fac*dic_des_retenu[fac]
+    return score
 
 def TourDuJouer():
     """
@@ -62,9 +70,10 @@ def TourDuJouer():
         #aficher les des que lons peux récuperer
         print("des que je peux recuper : ", des_posible_a_recuper) #temporére
         if len(des_posible_a_recuper) == 0:
-            return "tu na pas de sinbole a récuperer sais un echerque"
+            return "tu na pas de dés a récuperer sais un echerque"
         des_recuper = Recuperations(des_posible_a_recuper)
         dic_des_retenu[des_recuper] = lenser[des_recuper]
+        print(ScoreJouer(dic_des_retenu))
         nobre_de_des -= lenser[des_recuper]
         if nobre_de_des == 0:
             continue_a_jouer = False
@@ -74,5 +83,5 @@ def TourDuJouer():
             veut_tu_continuser = input("veut tu continuer a jouer [oui/non] : ")
         if veut_tu_continuser == "non":
             continue_a_jouer = False
-    return ScoreJouer(dic_des_retenu)
+    return ScoreJouerFinale(dic_des_retenu)
 
