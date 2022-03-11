@@ -19,22 +19,17 @@ def RechercheP(liste_p, score):
             inf = med + 1
     return med
 
-def PiquerPckomino(liste_p, score, indice_joueur):
+def PiquerPckomino(liste_p, score):
     """ List x Int --> List
     Renvoie la liste des pickominos qu'un joueur peut prendre"""
-    jetons_du_joueur = liste_des_joueurs[indice_joueur][1]
-    nv_liste_p = [e for e in liste_p if e not in jetons_du_joueur]
-    #liste_des_joueurs
-    for i in liste_des_joueurs:
-        if len(i[1]) != 0 and i[1][-1][0] == score :
-            ''''and i[1][-1] not in jetons_du_joueur'''
+    nv_liste_p = liste_p[:]
+    for i in liste_des_joueur:
+        if len(i[1]) != 0 and i[1][-1][0] == score:
             nv_liste_p.append(i[1][-1])
     if nv_liste_p == []:
         return "\nVotre score est insuffisant"
     return nv_liste_p
 
-l = [['k', [(22,1), (25,1)]],['l', [(21,1), (30,1)]]]
-print(PiquerPckomino(jetons_en_jeu, 30, 1))
 
 def RecupePickomino(indice_joueur, pickomino_disponible):
     """ list x int -->  None"""
@@ -48,13 +43,13 @@ def RecupePickomino(indice_joueur, pickomino_disponible):
             continue
         if selections not in liste_des_valeur_possible:
             print("\nLa valeur dois etre dans les posibilites")
-    for i in range(len(liste_des_joueurs)):
-        if liste_des_joueurs[i][1] != [] and selections == liste_des_joueurs[i][1][-1][0]:
-            liste_des_joueurs[indice_joueur][1].append(liste_des_joueurs[i][1].pop())
+    for i in range(len(liste_des_joueur)):
+        if liste_des_joueur[i][1] != [] and selections == liste_des_joueur[i][1][-1][0]:
+            liste_des_joueur[indice_joueur][1].append(liste_des_joueur[i][1].pop())
             break
     if selections in liste_des_valeur_possible:
-        indice_s = jetons_en_jeu.pop(RechercheP(jetons_en_jeu, selections))
-        liste_des_joueurs[indice_joueur][1].append(indice_s)
+        indice_s = jetons_en_jeux.pop(RechercheP(jetons_en_jeux, selections))
+        liste_des_joueur[indice_joueur][1].append(indice_s)
 
 
 
