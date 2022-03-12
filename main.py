@@ -5,26 +5,26 @@ import gameplay as g
 from afichage import *
 import time
 import os
+import random 
 
 def JeuPlusieursJoueur():
     nombre_de_toure = 0
-    
     while jetons_en_jeu != []:
         indice_joueur = nombre_de_toure%len(liste_des_joueurs)
         print("Tour du joueur", liste_des_joueurs[indice_joueur][0])
 
         AfficheJoueur()
-        affichage_dominos(jetons_en_jeu, jetons_retournes)
+        affichage_dominos(jetons_en_jeu+liste_jetons_retournes)
 
         print("")
         score = g.TourDuJoueur()
         
         if isinstance(score, str):
-            perdant.PartiePerdu(score)
+            jetons_retournes = perdant.PartiePerdu(score)
         else:
             indice_p = pioche.RechercheP(jetons_en_jeu, score)
             if isinstance(indice_p, str):
-                perdant.PartiePerdu(indice_p)
+                jetons_retournes = perdant.PartiePerdu(indice_p)
         if not isinstance(score, str) and not isinstance(indice_p, str):
             print('ici indice_p', indice_p+1)
 
@@ -44,8 +44,9 @@ def JeuPlusieursJoueur():
                 print(liste_possibliliter)
 
         nombre_de_toure +=1
-        print('Nombre de jetons retournes ' ,jetons_retournes)
+        print('Nombre de jetons retournes ' ,len(liste_jetons_retournes))
         #time.sleep(5)
         #os.system('cls')
         #rajouter du temps
+random.seed(2)
 JeuPlusieursJoueur()

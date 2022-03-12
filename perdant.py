@@ -1,9 +1,8 @@
 import pioche
 from initialisationJeu import *
 
-jetons_retournes = 0
 
-RePlacerDomino = lambda : jetons_en_jeu.insert(pioche.RechercheP(jetons_en_jeu, liste_des_joueurs[indice_joueur][1][-1][0]), liste_des_joueurs[indice_joueur][1][-1])
+RePlacerDomino = lambda domi_remettre : jetons_en_jeu.insert(pioche.RechercheP(jetons_en_jeu, domi_remettre[0])+1, domi_remettre)
 #supprimer le dominos de la liste du joueur
 def PartiePerdu(erreur):
     '''
@@ -12,17 +11,18 @@ def PartiePerdu(erreur):
     '''
     print(erreur)
     if liste_des_joueurs[indice_joueur][1] != []:
-        RePlacerDomino()
-    RetourneDomino()
+        RePlacerDomino(liste_des_joueurs[indice_joueur][1][-1])
+        liste_des_joueurs[indice_joueur][1].pop()
+        
+    nombre_jetons_retourner = RetourneDomino()
     
 
 def RetourneDomino():
     """list x int --> None
     Affiche le nombre de jeons retournes"""
     del jetons_en_jeu[-1]
-    global jetons_retournes
-    jetons_retournes += 1
-    print("Le nombre de jetons retournes est de : ", jetons_retournes)
+    liste_jetons_retournes.append(('#','#'))
+    print("Le nombre de jetons retournes est de : ", len(liste_jetons_retournes))
 
 
 

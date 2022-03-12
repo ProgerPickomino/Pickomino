@@ -51,7 +51,7 @@ def ScoreJoueurFinale(dic_des_retenu):
         for fac in dic_des_retenu:
             score = score + fac*dic_des_retenu[fac]
         return score
-    return "Echec vous ne possedez pas de verres."
+    return "Echec vous ne possedez pas de vers."
 
 def ScoreJoueur(dic_des_retenu):
     '''
@@ -74,16 +74,20 @@ def TourDuJoueur():
     nombre_de_des = 8
     face_du_des = [1, 2, 3, 4, 5, "vers"]
     dic_des_retenu = {}
+    des_du_joueur = []
     while continue_a_jouer:
         lancer = LanceDes(face_du_des, nombre_de_des)
         #aficher le lancer
         affiche_des(lancer) #temporére
         des_possible_a_recuperer = PossibliterDeJeux(lancer, dic_des_retenu)
         #aficher les des que lons peux récuperer
+        print("Des que j'ai recupere :", des_du_joueur)
         print("des que je peux recuper : ", des_possible_a_recuperer) #temporére
+
         if len(des_possible_a_recuperer) == 0:
             return "tu n'as pas de dés a récuperer c'est un echec"
         des_recupere = Recuperations(des_possible_a_recuperer)
+        des_du_joueur.append(des_recupere)
         dic_des_retenu[des_recupere] = lancer[des_recupere]
         print('Votre score est de :',ScoreJoueur(dic_des_retenu))
         nombre_de_des -= lancer[des_recupere]

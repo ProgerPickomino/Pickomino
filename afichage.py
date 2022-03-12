@@ -11,14 +11,11 @@ def AfficheJoueur():
             affichage_dominos(liste_des_joueurs[i][1], 0)
             print('\n')
       
-def affichage_dominos(Liste, jetons_retournes):
+def affichage_dominos(Liste):
     """
     List --> None 
     affiche les dominos
     """
-    nv_list = []
-    if jetons_retournes > 0:
-        nv_list = Liste[:] + [('# ','#') for i in range(jetons_retournes)]
     if len(Liste)==0:
         print("\nTous les dominos ont été joués")
     print(' -----  '*len(Liste))

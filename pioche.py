@@ -27,14 +27,10 @@ def PiquerPckomino(liste_p, score, indice_joueur):
     #liste_des_joueurs
     for i in liste_des_joueurs:
         if len(i[1]) != 0 and i[1][-1][0] == score :
-            ''''and i[1][-1] not in jetons_du_joueur'''
             nv_liste_p.append(i[1][-1])
     if nv_liste_p == []:
         return "\nVotre score est insuffisant"
     return nv_liste_p
-
-l = [['k', [(22,1), (25,1)]],['l', [(21,1), (30,1)]]]
-print(PiquerPckomino(jetons_en_jeu, 30, 1))
 
 def RecupePickomino(indice_joueur, pickomino_disponible):
     """ list x int -->  None"""
