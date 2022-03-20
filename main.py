@@ -48,5 +48,5 @@ def JeuPlusieursJoueur():
         #time.sleep(5)
         #os.system('cls')
         #rajouter du temps
-#random.seed(2)
+random.seed(1)
 JeuPlusieursJoueur()
