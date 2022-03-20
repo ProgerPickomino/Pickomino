@@ -8,7 +8,7 @@ def AfficheJoueur():
             print("Le joueur n'a pas de jetons")
         else:
             print("\nVous avez ", len(liste_des_joueurs[i][1]),' jetons',"Le jeton en haut de la pile est :", liste_des_joueurs[i][1][-1])
-            affichage_dominos(liste_des_joueurs[i][1])
+            affichage_dominos(liste_des_joueurs[i][1], 0)
             print('\n')
       
 def affichage_dominos(Liste):

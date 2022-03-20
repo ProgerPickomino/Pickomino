@@ -21,7 +21,7 @@ def RetourneDomino():
     """list x int --> None
     Affiche le nombre de jeons retournes"""
     del jetons_en_jeu[-1]
-    liste_jetons_retournes.append(('# ','# '))
+    liste_jetons_retournes.append(('#','#'))
     print("Le nombre de jetons retournes est de : ", len(liste_jetons_retournes))
 
 

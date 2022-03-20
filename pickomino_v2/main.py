@@ -37,7 +37,7 @@ def JeuPlusieursJoueur():
             liste_possibliliter = pioche.PiquerPckomino(liste_p, score, indice_joueur)
 
             if not isinstance(liste_possibliliter, str):
-                affichage_dominos(liste_possibliliter)
+                affichage_dominos(liste_possibliliter, 0)
                 pioche.RecupePickomino(indice_joueur, liste_possibliliter)
             else:
                 print('Votre score est de :',score)
