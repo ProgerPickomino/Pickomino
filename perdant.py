@@ -2,7 +2,7 @@ import pioche
 from initialisationJeu import *
 
 
-RePlacerDomino = lambda domi_remettre : jetons_en_jeu.insert(pioche.RechercheP(jetons_en_jeu, domi_remettre[0])+1, domi_remettre)
+RePlacerDomino = lambda domi_remettre : jetons_en_jeu.insert(pioche.RechercheP(jetons_en_jeu, domi_remettre[0]), domi_remettre)
 #supprimer le dominos de la liste du joueur
 def PartiePerdu(erreur):
     '''
@@ -23,9 +23,6 @@ def RetourneDomino():
     del jetons_en_jeu[-1]
     liste_jetons_retournes.append(('# ','# '))
     print("Le nombre de jetons retournes est de : ", len(liste_jetons_retournes))
-
-
-
 
 
 

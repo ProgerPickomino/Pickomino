@@ -26,7 +26,6 @@ def JeuPlusieursJoueur():
             if isinstance(indice_p, str):
                 jetons_retournes = perdant.PartiePerdu(indice_p)
         if not isinstance(score, str) and not isinstance(indice_p, str):
-            print('ici indice_p', indice_p+1)
 
             if score < jetons_en_jeu[0][0]:
                 liste_p = []
