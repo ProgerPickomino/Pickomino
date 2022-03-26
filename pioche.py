@@ -26,15 +26,17 @@ def RechercheP(liste_p, score):
             inf = med + 1
     return med'''
 
-def PiquerPckomino(liste_p, score, indice_joueur):
-    """ List x Int --> List
-    Renvoie la liste des pickominos qu'un joueur peut prendre"""
-    jetons_du_joueur = liste_des_joueurs[indice_joueur][1]
+def PiquerPckomino(liste_p, score, indice):
+    """ 
+    List x Int --> List | Str
+    Renvoie la liste des pickominos qu'un joueur peut prendre
+    """
+    jetons_du_joueur = liste_des_joueurs[indice][1]
     nv_liste_p = [e for e in liste_p if e not in jetons_du_joueur]
     #liste_des_joueurs
-    for i in liste_des_joueurs:
-        if len(i[1]) != 0 and i[1][-1][0] == score :
-            nv_liste_p.append(i[1][-1])
+    for i in range(len(liste_des_joueurs)):
+        if i!= indice and len(liste_des_joueurs[i][1]) != 0 and liste_des_joueurs[i][1][-1][0] == score :
+            nv_liste_p.append(liste_des_joueurs[i][1][-1])
     if nv_liste_p == []:
         return "\nVotre score est insuffisant"
     return nv_liste_p 

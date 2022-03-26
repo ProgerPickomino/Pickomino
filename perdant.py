@@ -13,15 +13,15 @@ def insertion(elem):
         pos = pos - 1 #pas besoin du si car ´e valuation paresseuse
     jetons_en_jeu[pos] = elem
 
-def PartiePerdu(erreur):
+def PartiePerdu(erreur, indice):
     '''
     Str --> None
     replace le dernier pickomino de la pile d'un joueur et retourne(cacher) le dernier pickomino sur la table de jeu
     '''
     print(erreur)
     #print('HEREEEEEEEEEEEEEEE', indice_joueur)
-    if liste_des_joueurs[indice_joueur][1] != []:
-        insertion(liste_des_joueurs[indice_joueur][1].pop())
+    if liste_des_joueurs[indice][1] != []:
+        insertion(liste_des_joueurs[indice][1].pop())
         #RePlacerDomino(liste_des_joueurs[indice_joueur][1].pop())
     RetourneDomino()
     

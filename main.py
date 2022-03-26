@@ -20,28 +20,27 @@ def JeuPlusieursJoueur():
         score = g.TourDuJoueur()
         
         if isinstance(score, str):
-            jetons_retournes = perdant.PartiePerdu(score)
+            jetons_retournes = perdant.PartiePerdu(score, indice_joueur)
         else:
             indice_p = pioche.RechercheP(jetons_en_jeu, score)
             if isinstance(indice_p, str):
-                jetons_retournes = perdant.PartiePerdu(indice_p)
+                jetons_retournes = perdant.PartiePerdu(indice_p, indice_joueur)
         if not isinstance(score, str) and not isinstance(indice_p, str):
 
             if score < jetons_en_jeu[0][0]:
-                jetons_retournes = perdant.PartiePerdu(score)
+                jetons_retournes = perdant.PartiePerdu(score, indice_joueur)
                 liste_p = []
 
-            if score >= 21:
+            else :
                 liste_p = [e for e in jetons_en_jeu if e[0] <= score ]
                 #jetons_en_jeu[:indice_p + 1]
 
             liste_possibliliter = pioche.PiquerPckomino(liste_p, score, indice_joueur) #rajouter le pickomino du joueur qui est egal au score 
 
-            if isinstance(liste_possibliliter, str):
+            if not isinstance(liste_possibliliter, str):
                 affichage_dominos(liste_possibliliter)
                 pioche.RecupePickomino(indice_joueur, liste_possibliliter)
             else:
-                perdant.PartiePerdu("Echec")
                 print('Votre score est de :',score)
                 print(liste_possibliliter)
 
@@ -50,5 +49,5 @@ def JeuPlusieursJoueur():
         #time.sleep(5)
         #os.system('cls')
         #rajouter du temps
-random.seed(2)
+random.seed(3)
 JeuPlusieursJoueur()
