@@ -1,0 +1,19 @@
+JeuPlusieurJourer() -> JeuPlusieursJouer()
+
+nombre_de_toure     -> nombre_de_tours
+    
+jetons_en_jeux      -> jetons_en_jeu
+
+indix_jouer         -> index_jouer
+
+liste_des_joueur    -> liste_des_joueurs
+
+jetons_retourner    -> jetons_retournes
+
+TourDuJouer()       -> TourDuJoueur()
+        
+veres               -> vers
+
+plus plein d'autres fautes d'orthographes...
+
+

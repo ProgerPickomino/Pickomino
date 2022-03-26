@@ -8,14 +8,7 @@ def RechercheP(liste_p, score):
     if isinstance(score, str):
         return score
     appartient = False
-    pos = len(liste_p)
-    while pos >= 0 and not appartient:
-        pos -= 1
-        if liste_p[pos][0] == score :
-            appartient = True
-    return pos
-    '''
-    inf , sup = 0, len( liste_p ) - 1
+    inf , sup = 0, len ( liste_p ) - 1
     while inf <= sup and not ( appartient ) :
         med = ( inf + sup )//2
         if liste_p [med][0] == score :
@@ -24,7 +17,7 @@ def RechercheP(liste_p, score):
             sup = med - 1
         else :
             inf = med + 1
-    return med'''
+    return med
 
 def PiquerPckomino(liste_p, score, indice_joueur):
     """ List x Int --> List
@@ -37,32 +30,27 @@ def PiquerPckomino(liste_p, score, indice_joueur):
             nv_liste_p.append(i[1][-1])
     if nv_liste_p == []:
         return "\nVotre score est insuffisant"
-    return nv_liste_p 
+    return nv_liste_p
 
 def RecupePickomino(indice_joueur, pickomino_disponible):
     """ list x int -->  None"""
     liste_des_valeur_possible = [i[0] for i in pickomino_disponible]
-    pickomino_autre_joueur = []
     selections = ""
-    while  selections not in liste_des_valeur_possible:
+    while not isinstance(selections, int) and selections not in liste_des_valeur_possible:
         try:
             selections = int(input("\nQuel pickomino voulez-vous prendre : "))
         except ValueError:
             print("\nLa valeur doit etre un nombre entier")
             continue
         if selections not in liste_des_valeur_possible:
-            print("\nLa valeur dois etre dans les possibilites")
-
+            print("\nLa valeur dois etre dans les posibilites")
     for i in range(len(liste_des_joueurs)):
         if liste_des_joueurs[i][1] != [] and selections == liste_des_joueurs[i][1][-1][0]:
-            pickomino_autre_joueur.append(liste_des_joueurs[i][1][-1][0])
             liste_des_joueurs[indice_joueur][1].append(liste_des_joueurs[i][1].pop())
-            
             break
-    if selections in liste_des_valeur_possible and (selections not in pickomino_autre_joueur):
+    if selections in liste_des_valeur_possible:
         indice_s = jetons_en_jeu.pop(RechercheP(jetons_en_jeu, selections))
         liste_des_joueurs[indice_joueur][1].append(indice_s)
-
 
 
 
