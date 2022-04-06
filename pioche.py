@@ -14,17 +14,8 @@ def RechercheP(liste_p, score):
         if liste_p[pos][0] == score :
             appartient = True
     return pos
-    '''
-    inf , sup = 0, len( liste_p ) - 1
-    while inf <= sup and not ( appartient ) :
-        med = ( inf + sup )//2
-        if liste_p [med][0] == score :
-            appartient = True
-        elif liste_p [med][0] > score :
-            sup = med - 1
-        else :
-            inf = med + 1
-    return med'''
+print(
+    RechercheP([(21, 1), (22, 1), (23, 1), (24, 1), (25, 2), (26, 2), (27, 2)] , 24))
 
 def PiquerPckomino(liste_p, score, indice):
     """ 

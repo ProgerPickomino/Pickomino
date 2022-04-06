@@ -1,7 +1,7 @@
 from initialisationJeu import *
 from perdant import *
 
-def AfficheJoueur():
+def AfficheJoueur(liste_des_joueurs):
     for i in range(len(liste_des_joueurs)):
         print(liste_des_joueurs[i][0], ":", end = "")
         if len(liste_des_joueurs[i][1]) == 0:

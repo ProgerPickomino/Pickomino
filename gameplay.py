@@ -25,7 +25,7 @@ def PossibliterDeJeux(lenser, dic_des_retenu):
 
 def Recuperations(des_possible_a_recuperer):
     """
-    list --> int
+    list --> int 
     retourne le des que le joueur veut recuperer 
     """
     des_recupere = None
@@ -66,7 +66,7 @@ def ScoreJoueur(dic_des_retenu):
             score = score + fac*dic_des_retenu[fac]
     return score
 
-def TourDuJoueur():
+def TourDuJoueurHumain():
     """
     list X str --> int | str
     """
