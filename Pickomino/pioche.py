@@ -14,8 +14,7 @@ def RechercheP(liste_p, score):
         if liste_p[pos][0] == score :
             appartient = True
     return pos
-print(
-    RechercheP([(21, 1), (22, 1), (23, 1), (24, 1), (25, 2), (26, 2), (27, 2)] , 24))
+
 
 def PiquerPckomino(liste_p, score, indice):
     """ 
@@ -29,7 +28,7 @@ def PiquerPckomino(liste_p, score, indice):
         if i!= indice and len(liste_des_joueurs[i][1]) != 0 and liste_des_joueurs[i][1][-1][0] == score :
             nv_liste_p.append(liste_des_joueurs[i][1][-1])
     if nv_liste_p == []:
-        return "\nVotre score est insuffisant"
+        return "Votre score est insuffisant"
     return nv_liste_p 
 
 def RecupePickomino(indice_joueur, pickomino_disponible):

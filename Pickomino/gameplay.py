@@ -1,6 +1,6 @@
 import random as rm
 from afichage import *
-
+import pioche as p
 def LanceDes(face_du_des, nombre_de_des):
     """
     list X dic X int --> dict
@@ -25,7 +25,7 @@ def PossibliterDeJeux(lenser, dic_des_retenu):
 
 def Recuperations(des_possible_a_recuperer):
     """
-    list --> int 
+    list --> int
     retourne le des que le joueur veut recuperer 
     """
     des_recupere = None
@@ -66,7 +66,7 @@ def ScoreJoueur(dic_des_retenu):
             score = score + fac*dic_des_retenu[fac]
     return score
 
-def TourDuJoueurHumain():
+def TourDuJoueurHumain(indice_joueur):
     """
     list X str --> int | str
     """
@@ -89,15 +89,23 @@ def TourDuJoueurHumain():
         des_recupere = Recuperations(des_possible_a_recuperer)
         des_du_joueur.append(des_recupere)
         dic_des_retenu[des_recupere] = lancer[des_recupere]
-        print('Votre score est de :',ScoreJoueur(dic_des_retenu))
+        score_temporer = ScoreJoueur(dic_des_retenu)
+        print('Votre score est de :',score_temporer)
         nombre_de_des -= lancer[des_recupere]
         if nombre_de_des == 0:
             continue_a_jouer = False
             break
-        veux_tu_continuer = ""
-        while veux_tu_continuer not in ("oui", "non"):
-            veux_tu_continuer = input("veux tu continuer a jouer [oui/non] : ")
-        if veux_tu_continuer == "non":
-            continue_a_jouer = False
+        if score_temporer < jetons_en_jeu[0][0]:
+            posibiliter_sur_la_table = []
+        else:
+            posibiliter_sur_la_table = [e for e in jetons_en_jeu if e[0] <= score_temporer]
+        liste_des_sugestions = p.PiquerPckomino(posibiliter_sur_la_table, score_temporer, indice_joueur)
+        print(liste_des_sugestions)
+        if liste_des_sugestions != "Votre score est insuffisant":
+            veux_tu_continuer = ""
+            while veux_tu_continuer not in ("oui", "non"):
+                veux_tu_continuer = input("veux tu continuer a jouer [oui/non] : ")
+            if veux_tu_continuer == "non":
+                continue_a_jouer = False
     return ScoreJoueurFinale(dic_des_retenu)
 

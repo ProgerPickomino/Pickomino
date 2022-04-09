@@ -44,13 +44,15 @@ def JeuPlusieursJoueur():
             else:
                 print('Votre score est de :',score)
                 print(liste_possibliliter)
-
+        totale_de_vers_joueur = sum(e[1] for e in liste_des_joueurs[indice_joueur][1])
+        liste_des_joueurs[indice_joueur][2] = totale_de_vers_joueur
+        print(f"le joueur {liste_des_joueurs[indice_joueur][0]}, posede {totale_de_vers_joueur} vers")
         nombre_de_toure +=1
         print('Nombre de jetons retournes ' ,len(liste_jetons_retournes))
         #time.sleep(5)
         #os.system('cls')
         #rajouter du temps
-
+        aficher_ganiens()
 def Joueuraleatoire():
     nombre_de_toure = 0
 
@@ -64,7 +66,7 @@ def Joueuraleatoire():
             score = randomplayer.TourDuJoueurAleatoire()
         else :
             print('\n')
-            score = g.TourDuJoueurHumain()
+            score = g.TourDuJoueurHumain(indice_joueur)
         
         indice_p = pioche.RechercheP(jetons_en_jeu, score) 
         if isinstance(indice_p, str):
@@ -89,11 +91,14 @@ def Joueuraleatoire():
                     pioche.RecupePickomino(indice_joueur, liste_possibliliter)
             else:
                 print('Votre score est de :',score)
-
+        totale_de_vers_joueur = sum(e[1] for e in liste_des_joueurs[indice_joueur][1])
+        liste_des_joueurs[indice_joueur][2] = totale_de_vers_joueur
+        print(f"le joueur {liste_des_joueurs[indice_joueur][0]}, posede {totale_de_vers_joueur} vers")
         nombre_de_toure +=1
         print('\nNombre de jetons retournes ' ,len(liste_jetons_retournes))
-        time.sleep(3)
+        #time.sleep(3)
         os.system('cls')
+    aficher_ganiens()
 
 #random.seed(3)
 Joueuraleatoire()
