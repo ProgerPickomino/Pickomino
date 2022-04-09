@@ -6,39 +6,25 @@ def InitJoueur():
 
     liste_des_joueurs = []
     nombre_de_joueur = ""
-    type_partie = ""
     nombre_de_joueur = 0
     global nombre_de_joueurs_aleatoire 
     nombre_de_joueurs_aleatoire = 0
-    while not 1<nombre_de_joueur<=6 or (type_partie not in {'h', 'a'}):
+    while not 1<nombre_de_joueur<=6 :
         try:
-            type_partie = input("Voulez-vous jouer une partie humains VS humains ou humains VS artificielles {h/a} : ")
-            if type_partie not in {'h', 'a'}:
-                print('Veuillez choisir h/a : ')
-            else :
-                nombre_de_joueur = int(input("Entrer le nombre de joueurs : "))
+            nombre_de_joueur = int(input("Entrer le nombre de joueurs : "))
         except ValueError:
             print("Vous devez saisir un entier")
             continue
+    
 
-    if type_partie == "a":
-        while  not 1<=nombre_de_joueurs_aleatoire<=nombre_de_joueur :
-            try :
-                nombre_de_joueurs_aleatoire = int(input("Entrez le nombre de joueurs aleatoires : "))
-            except ValueError :
-                print("Vous devez saisir un entier")
-                continue
-
-    nombre_de_joueur_humains = nombre_de_joueur - nombre_de_joueurs_aleatoire 
 
     for i in range(nombre_de_joueur):
-        if i < nombre_de_joueurs_aleatoire :
-            nom_du_joueur = input(f"Nom du joueur aleatoire {i+1} : ")
-        else :
-            nom_du_joueur = input(f"Nom du joueur humain {i+1} : ")
-
-        liste_des_joueurs.append([nom_du_joueur, [], 0])
-
+        type_du_joueur = ""
+        nom_du_joueur = input(f"Nom du joueur {i+1} : ")
+        while type_du_joueur not in {"a", "h", "g"}:
+            type_du_joueur = input(f"voulez-vous que {nom_du_joueur} sois un jouer humain, aléatoire ou glouton (h/a/g) : ")
+        liste_des_joueurs.append([nom_du_joueur, [], 0, type_du_joueur])
+    print(liste_des_joueurs)
     return liste_des_joueurs
   
     

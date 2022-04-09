@@ -39,12 +39,12 @@ def affiche_des(lance_de_des):
             list_des.append(des)
     print(list_des) 
 
-def aficher_ganiens():
+def aficher_ganiens(liste_des_joueurs):
     indice_max = [0]
-    for i in range(1, len(totale_de_vers_joueur)):
-        if liste_des_joueurs[i][2] == liste_des_joueurs[indice_joueur[0]][2]:
+    for i in range(1, len(liste_des_joueurs)):
+        if liste_des_joueurs[i][2] == liste_des_joueurs[indice_max[0]][2]:
             indice_max.append(i)
-        if liste_des_joueurs[i][2] > liste_des_joueurs[indice_joueur[0]][2]:
+        if liste_des_joueurs[i][2] > liste_des_joueurs[indice_max[0]][2]:
             indice_max = [i]
     
     if len(indice_max) == 1:
@@ -53,7 +53,7 @@ def aficher_ganiens():
     else:
         les_ganinent = "les ganient sons : \n"
         for j in indice_max:
-            les_ganinent += f"{liste_des_joueurs[indice][0]} et sons score et de {liste_des_joueurs[indice][2]},\n"
+            les_ganinent += f"{liste_des_joueurs[j][0]} et sons score et de {liste_des_joueurs[j][2]},\n"
         print(les_ganinent[:-2])
     
      

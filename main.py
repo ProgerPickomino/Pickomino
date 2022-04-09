@@ -84,11 +84,16 @@ def Joueuraleatoire():
 
             if not isinstance(liste_possibliliter, str):
                 affichage_dominos(liste_possibliliter)
-                if indice_joueur < nombre_de_joueurs_aleatoire :
+                if liste_des_joueurs[indice_joueur][3] == 'a' :
                     #time.sleep(1)
                     randomplayer.SelectionRandom(liste_possibliliter, liste_des_joueurs)
-                else :
+                elif liste_des_joueurs[indice_joueur][3] == 'h' :
+                    print("nonnnnnnnnnnnnnnnnnnn")
                     pioche.RecupePickomino(indice_joueur, liste_possibliliter)
+                """
+                elif liste_des_joueurs[indice_joueur][3] == "g" :
+                    pass
+                """
             else:
                 print('Votre score est de :',score)
         totale_de_vers_joueur = sum(e[1] for e in liste_des_joueurs[indice_joueur][1])
@@ -98,7 +103,7 @@ def Joueuraleatoire():
         print('\nNombre de jetons retournes ' ,len(liste_jetons_retournes))
         #time.sleep(3)
         os.system('cls')
-    aficher_ganiens()
+    aficher_ganiens(liste_des_joueurs)
 
 #random.seed(3)
 Joueuraleatoire()
