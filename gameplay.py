@@ -19,8 +19,15 @@ def PossibliterDeJeux(lenser, dic_des_retenu):
     """
     des_possible_a_recuperer = []
     for i in lenser:
-            if i not in dic_des_retenu:
-                des_possible_a_recuperer.append(i)
+        if i not in dic_des_retenu:
+            des_possible_a_recuperer.append(i)
+    return des_possible_a_recuperer
+def DesPossiblesaRecuperer(lenser, dic_des_retenu):
+
+    des_possible_a_recuperer = dict()
+    for i in lenser:
+        if i not in dic_des_retenu:
+            des_possible_a_recuperer[i] = lenser[i]
     return des_possible_a_recuperer
 
 def Recuperations(des_possible_a_recuperer):

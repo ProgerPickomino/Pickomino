@@ -34,7 +34,7 @@ def TourDuJoueurAleatoire():
 
         if len(des_possible_a_recuperer) == 0:
             return "Tu n'as pas de dés a récuperer c'est un echec"
-        #time.sleep(2)
+        time.sleep(2)
         des_recupere = random.choice(des_possible_a_recuperer)
         des_du_joueur.append(des_recupere)
         dic_des_retenu[des_recupere] = lancer[des_recupere]

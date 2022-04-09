@@ -7,6 +7,7 @@ import time
 import os
 import random 
 import randomplayer
+import glouton 
 
 def JeuPlusieursJoueur():
     nombre_de_toure = 0
@@ -53,6 +54,7 @@ def JeuPlusieursJoueur():
         #os.system('cls')
         #rajouter du temps
         aficher_ganiens()
+
 def Joueuraleatoire():
     nombre_de_toure = 0
 
@@ -64,14 +66,15 @@ def Joueuraleatoire():
         if liste_des_joueurs[indice_joueur][3] == "a" :
             print('\n')
             score = randomplayer.TourDuJoueurAleatoire()
+
         elif liste_des_joueurs[indice_joueur][3] == "h" :
             print('\n')
             score = g.TourDuJoueurHumain(indice_joueur)
-        """
+
         elif liste_des_joueurs[indice_joueur][3] == "g" :
-            pass
-        """
-        
+            print("\n")
+            score = glouton.TourDuJoueurGlouton()   
+
         indice_p = pioche.RechercheP(jetons_en_jeu, score) 
         if isinstance(indice_p, str):
             perdant.PartiePerdu(indice_p, indice_joueur) #print l'erreur et incremente le nombre de jetons reoturnes
@@ -94,10 +97,10 @@ def Joueuraleatoire():
                     randomplayer.SelectionRandom(liste_possibliliter, liste_des_joueurs, indice_joueur)
                 elif liste_des_joueurs[indice_joueur][3] == 'h' :
                     pioche.RecupePickomino(indice_joueur, liste_possibliliter)
-                """
+                
                 elif liste_des_joueurs[indice_joueur][3] == "g" :
-                    pass
-                """
+                    glouton.SelectionGlouton(liste_possibliliter, liste_des_joueurs, indice_joueur)
+                
             else:
                 print('Votre score est de :',score)
         totale_de_vers_joueur = sum(e[1] for e in liste_des_joueurs[indice_joueur][1])
