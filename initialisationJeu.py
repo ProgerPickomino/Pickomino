@@ -7,8 +7,6 @@ def InitJoueur():
     liste_des_joueurs = []
     nombre_de_joueur = ""
     nombre_de_joueur = 0
-    global nombre_de_joueurs_aleatoire 
-    nombre_de_joueurs_aleatoire = 0
     while not 1<nombre_de_joueur<=6 :
         try:
             nombre_de_joueur = int(input("Entrer le nombre de joueurs : "))

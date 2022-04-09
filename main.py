@@ -61,12 +61,16 @@ def Joueuraleatoire():
         print("Tour du joueur", liste_des_joueurs[indice_joueur][0], indice_joueur) 
         AfficheJoueur(liste_des_joueurs)
         affichage_dominos(jetons_en_jeu)
-        if indice_joueur < nombre_de_joueurs_aleatoire :
+        if liste_des_joueurs[indice_joueur][3] == "a" :
             print('\n')
             score = randomplayer.TourDuJoueurAleatoire()
-        else :
+        elif liste_des_joueurs[indice_joueur][3] == "h" :
             print('\n')
             score = g.TourDuJoueurHumain(indice_joueur)
+        """
+        elif liste_des_joueurs[indice_joueur][3] == "g" :
+            pass
+        """
         
         indice_p = pioche.RechercheP(jetons_en_jeu, score) 
         if isinstance(indice_p, str):
@@ -83,12 +87,12 @@ def Joueuraleatoire():
             liste_possibliliter = pioche.PiquerPckomino(liste_p, score, indice_joueur) 
 
             if not isinstance(liste_possibliliter, str):
+
                 affichage_dominos(liste_possibliliter)
                 if liste_des_joueurs[indice_joueur][3] == 'a' :
                     #time.sleep(1)
                     randomplayer.SelectionRandom(liste_possibliliter, liste_des_joueurs)
                 elif liste_des_joueurs[indice_joueur][3] == 'h' :
-                    print("nonnnnnnnnnnnnnnnnnnn")
                     pioche.RecupePickomino(indice_joueur, liste_possibliliter)
                 """
                 elif liste_des_joueurs[indice_joueur][3] == "g" :
