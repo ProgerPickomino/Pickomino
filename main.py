@@ -109,7 +109,7 @@ def Joueuraleatoire():
         nombre_de_toure +=1
         print('\nNombre de jetons retournes ' ,len(liste_jetons_retournes))
         #time.sleep(3)
-        os.system('cls')
+        #os.system('cls')
     aficher_ganiens(liste_des_joueurs)
 
 #random.seed(3)

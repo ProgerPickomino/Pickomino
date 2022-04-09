@@ -22,6 +22,7 @@ def PossibliterDeJeux(lenser, dic_des_retenu):
         if i not in dic_des_retenu:
             des_possible_a_recuperer.append(i)
     return des_possible_a_recuperer
+    
 def DesPossiblesaRecuperer(lenser, dic_des_retenu):
 
     des_possible_a_recuperer = dict()

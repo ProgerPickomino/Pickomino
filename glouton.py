@@ -19,7 +19,26 @@ def SelectionGlouton(L_pickomino ,liste_des_joueurs, indice_joueur):
     if  selections not in pickomino_autre_joueur:
         pickomino = jetons_en_jeu.pop(RechercheP(jetons_en_jeu, selections[0]))
         liste_des_joueurs[indice_joueur][1].append(pickomino)
-
+def MeilleurScore(lancer_des):
+    '''
+    Dict --> Int | Str
+    '''
+    
+    dictionnaire_score = dict()
+    for face in lancer_des :
+        if face == "vers":
+            dictionnaire_score[face] = lancer_des[face]*5
+        else :
+            dictionnaire_score[face] = lancer_des[face]*face
+    m = random.choice(tuple(dictionnaire_score.keys()))
+    for c in dictionnaire_score:
+        if dictionnaire_score[m] < dictionnaire_score[c]:
+            m = c
+        if 5 in dictionnaire_score.keys() and 'vers' in dictionnaire_score.keys() :
+            if dictionnaire_score['vers'] == dictionnaire_score[5]:
+                m = 'vers'
+    return m 
+print(MeilleurScore({1:6, 5:6, 'vers':5}))
 def TourDuJoueurGlouton():
     """
     list X str --> int | str
@@ -29,8 +48,6 @@ def TourDuJoueurGlouton():
     face_du_des = [1, 2, 3, 4, 5, "vers"]
     dic_des_retenu = {}
     des_du_joueur = []
-    dic_scores = dict()
-    
     while continue_a_jouer:
         lancer = LanceDes(face_du_des, nombre_de_des)
         affiche_des(lancer)
@@ -40,34 +57,14 @@ def TourDuJoueurGlouton():
         if len(des_possible_a_recuperer) == 0:
             return "Tu n'as pas de dés a récuperer c'est un echec"
         time.sleep(2)
+        des_recupere = MeilleurScore(des_possible_a_recuperer)
 
-        for face in des_possible_a_recuperer:
-            if face == "vers":
-                dic_scores[face] = des_possible_a_recuperer[face]*5
-            else :
-                dic_scores[face] = des_possible_a_recuperer[face]*face
+        des_du_joueur.append(des_recupere)
 
-        cle_max = random.choice(tuple(dic_scores.keys()))
-
-        print(tuple(dic_scores.keys()))
-        for face in dic_scores:
-            if dic_scores[cle_max] < dic_scores[face]:
-                cle_max = face
-            if 5 in dic_scores and 'vers' in dic_scores:
-                if dic_scores[5] == dic_scores["vers"]:
-                    cle_max = "vers"
-
-        des_du_joueur.append(cle_max)
-        print('\ndes possibles a recuperer ',des_possible_a_recuperer)
-        print('\ndictionnaire de scores ', dic_scores, 'caleur de cle max',cle_max)
-
-        dic_des_retenu[cle_max] = lancer[cle_max]
-        print('\ndictoinnaire des retnues : ', dic_des_retenu)
+        dic_des_retenu[des_recupere] = lancer[des_recupere]
         print('Votre score est de :',ScoreJoueur(dic_des_retenu))
-
-        nombre_de_des -= lancer[cle_max]
+        nombre_de_des -= lancer[des_recupere]
         if nombre_de_des == 0 or ScoreJoueur(dic_des_retenu) >  jetons_en_jeu[0][0]:
             continue_a_jouer = False
             break
     return ScoreJoueurFinale(dic_des_retenu)
-TourDuJoueurGlouton()
