@@ -12,9 +12,9 @@ def InitJoueur():
     nombre_de_joueurs_aleatoire = 0
     while not 1<nombre_de_joueur<=6 or (type_partie not in {'h', 'a'}):
         try:
-            type_partie = input("Voulez-vous jouer une partie humains VS humains ou humains VS artificielles {h/a} : ")
+            type_partie = input("Voulez-vous jouer une partie humains VS humains ou humains VS artificielles/gloutons {h/a} : ")
             if type_partie not in {'h', 'a'}:
-                print('Veuillez choisir h/a : ')
+                print('Veuillez choisir h/a/g : ')
             else :
                 nombre_de_joueur = int(input("Entrer le nombre de joueurs : "))
         except ValueError:

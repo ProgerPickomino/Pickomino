@@ -5,12 +5,13 @@ from initialisationJeu import *
 RePlacerDomino = lambda domi_remettre : jetons_en_jeu.insert(pioche.RechercheP(jetons_en_jeu, domi_remettre[0]), domi_remettre)
 #supprimer le dominos de la liste du joueur
 def insertion(elem):
-    """ ListxElem --> None . Ins`ere elem dans la liste tri´ee"""
+    """ ListxTuple --> None .
+    Insere elem dans la liste triee"""
     pos = len(jetons_en_jeu)
     jetons_en_jeu.append(elem)
     while pos>0 and jetons_en_jeu[pos-1][0] > elem[0] :
         jetons_en_jeu[pos] = jetons_en_jeu[pos - 1]
-        pos = pos - 1 #pas besoin du si car ´e valuation paresseuse
+        pos = pos - 1 
     jetons_en_jeu[pos] = elem
 
 def PartiePerdu(erreur, indice):

@@ -41,6 +41,9 @@ def TourDuJoueurAleatoire():
         print('Votre score est de :',ScoreJoueur(dic_des_retenu))
         nombre_de_des -= lancer[des_recupere]
         if nombre_de_des == 0 or ScoreJoueur(dic_des_retenu) >  jetons_en_jeu[0][0]:
+            #correspond au dominos d'un autre joueur
             continue_a_jouer = False
             break
     return ScoreJoueurFinale(dic_des_retenu)
+#aleatoire trois fois il a qu'un ou deux dominos a la fin de la partie
+#glouton 

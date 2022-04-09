@@ -14,8 +14,6 @@ def RechercheP(liste_p, score):
         if liste_p[pos][0] == score :
             appartient = True
     return pos
-print(
-    RechercheP([(21, 1), (22, 1), (23, 1), (24, 1), (25, 2), (26, 2), (27, 2)] , 24))
 
 def PiquerPckomino(liste_p, score, indice):
     """ 
