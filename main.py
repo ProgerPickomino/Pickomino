@@ -91,7 +91,7 @@ def Joueuraleatoire():
                 affichage_dominos(liste_possibliliter)
                 if liste_des_joueurs[indice_joueur][3] == 'a' :
                     #time.sleep(1)
-                    randomplayer.SelectionRandom(liste_possibliliter, liste_des_joueurs)
+                    randomplayer.SelectionRandom(liste_possibliliter, liste_des_joueurs, indice_joueur)
                 elif liste_des_joueurs[indice_joueur][3] == 'h' :
                     pioche.RecupePickomino(indice_joueur, liste_possibliliter)
                 """
