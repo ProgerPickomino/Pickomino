@@ -39,7 +39,7 @@ def MeilleurScore(lancer_des):
         if 5 in dictionnaire_score.keys() and 'vers' in dictionnaire_score.keys() :
             if m in {'vers', 5} and (dictionnaire_score['vers'] == dictionnaire_score[5]):
                 m = 'vers'
-    return dictionnaire_score,m 
+    return m 
 
 print(MeilleurScore({3:1 ,5:2, 4:2, 'vers':2, 6: 1}))
 
