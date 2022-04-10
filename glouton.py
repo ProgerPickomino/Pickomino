@@ -19,6 +19,7 @@ def SelectionGlouton(L_pickomino ,liste_des_joueurs, indice_joueur):
     if  selections not in pickomino_autre_joueur:
         pickomino = jetons_en_jeu.pop(RechercheP(jetons_en_jeu, selections[0]))
         liste_des_joueurs[indice_joueur][1].append(pickomino)
+
 def MeilleurScore(lancer_des):
     '''
     Dict --> Int | Str
@@ -31,14 +32,17 @@ def MeilleurScore(lancer_des):
         else :
             dictionnaire_score[face] = lancer_des[face]*face
     m = random.choice(tuple(dictionnaire_score.keys()))
+    print(m)
     for c in dictionnaire_score:
-        if dictionnaire_score[m] < dictionnaire_score[c]:
+        if dictionnaire_score[c] > dictionnaire_score[m]:
             m = c
         if 5 in dictionnaire_score.keys() and 'vers' in dictionnaire_score.keys() :
-            if dictionnaire_score['vers'] == dictionnaire_score[5]:
+            if m in {'vers', 5} and (dictionnaire_score['vers'] == dictionnaire_score[5]):
                 m = 'vers'
-    return m 
-print(MeilleurScore({1:6, 5:6, 'vers':5}))
+    return dictionnaire_score,m 
+
+print(MeilleurScore({3:1 ,5:2, 4:2, 'vers':2, 6: 1}))
+
 def TourDuJoueurGlouton():
     """
     list X str --> int | str
@@ -52,7 +56,7 @@ def TourDuJoueurGlouton():
         lancer = LanceDes(face_du_des, nombre_de_des)
         affiche_des(lancer)
         des_possible_a_recuperer = DesPossiblesaRecuperer(lancer, dic_des_retenu)
-        print("Des que j'ai recupere :", des_du_joueur)
+        
 
         if len(des_possible_a_recuperer) == 0:
             return "Tu n'as pas de dés a récuperer c'est un echec"
@@ -60,6 +64,7 @@ def TourDuJoueurGlouton():
         des_recupere = MeilleurScore(des_possible_a_recuperer)
 
         des_du_joueur.append(des_recupere)
+        print("Des que j'ai recupere :", des_du_joueur)
 
         dic_des_retenu[des_recupere] = lancer[des_recupere]
         print('Votre score est de :',ScoreJoueur(dic_des_retenu))
