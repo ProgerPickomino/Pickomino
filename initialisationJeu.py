@@ -1,5 +1,3 @@
-
-
 def InitJoueur():
     '''None --> List
     retourne la liste des joueurs saisies au clavier'''

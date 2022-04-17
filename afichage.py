@@ -39,22 +39,27 @@ def affiche_des(lance_de_des):
             list_des.append(des)
     print(list_des) 
 
-def aficher_ganiens(liste_des_joueurs):
-    indice_max = [0]
-    for i in range(1, len(liste_des_joueurs)):
-        if liste_des_joueurs[i][2] == liste_des_joueurs[indice_max[0]][2]:
-            indice_max.append(i)
-        if liste_des_joueurs[i][2] > liste_des_joueurs[indice_max[0]][2]:
-            indice_max = [i]
-    
-    if len(indice_max) == 1:
-        indice = indice_max[0]
-        print(f"le ganient et {liste_des_joueurs[indice][0]} et sons score et de {liste_des_joueurs[indice][2]}")
-    else:
-        les_ganinent = "les ganient sons : \n"
-        for j in indice_max:
-            les_ganinent += f"{liste_des_joueurs[j][0]} et sons score et de {liste_des_joueurs[j][2]},\n"
-        print(les_ganinent[:-2])
-    
-     
+def affiche_gagnant(liste_des_joueurs):
+    print(f"Le GAGNANT est {liste_des_joueurs[0][0]} et son score est de {liste_des_joueurs[0][2]}\nClassement des joueurs :")
+    for i in range(len(liste_des_joueurs)):
+        print(f"Le joueur {liste_des_joueurs[i][0]} a un score de {liste_des_joueurs[i][2]}")
+
+def classement(joueur ,liste_des_joueurs):
+    """ 
+    Elem x List --> List
+    """
+    pos = len(liste_des_joueurs)
+    liste_des_joueurs.append(joueur)
+    while pos>0 and liste_des_joueurs[pos-1][2] < joueur[2] :
+        liste_des_joueurs[pos] = liste_des_joueurs[pos - 1]
+        pos = pos - 1 
+    liste_des_joueurs[pos] = joueur
+    return liste_des_joueurs
+
+def gagnants(liste_des_joueurs):
+    l_gagnants = []
+    for joueur in liste_des_joueurs:
+        classement(joueur ,l_gagnants)
+    return l_gagnants
+
 

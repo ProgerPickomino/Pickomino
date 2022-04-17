@@ -4,25 +4,28 @@ from initialisationJeu import *
 
 RePlacerDomino = lambda domi_remettre : jetons_en_jeu.insert(pioche.RechercheP(jetons_en_jeu, domi_remettre[0]), domi_remettre)
 #supprimer le dominos de la liste du joueur
-def insertion(elem):
-    """ ListxElem --> None . Ins`ere elem dans la liste tri´ee"""
-    pos = len(jetons_en_jeu)
-    jetons_en_jeu.append(elem)
-    while pos>0 and jetons_en_jeu[pos-1][0] > elem[0] :
-        jetons_en_jeu[pos] = jetons_en_jeu[pos - 1]
-        pos = pos - 1 #pas besoin du si car ´e valuation paresseuse
-    jetons_en_jeu[pos] = elem
+
+def insertion(elem, liste_jetons):
+    """ 
+    Elem x List --> None . 
+    Insere elem dans la liste triee
+    """
+    pos = len(liste_jetons)
+    liste_jetons.append(elem)
+    while pos>0 and liste_jetons[pos-1][0] > elem[0] :
+        liste_jetons[pos] = liste_jetons[pos - 1]
+        pos = pos - 1 
+    liste_jetons[pos] = elem
+    return liste_jetons
 
 def PartiePerdu(erreur, indice):
     '''
     Str --> None
-    replace le dernier pickomino de la pile d'un joueur et retourne(cacher) le dernier pickomino sur la table de jeu
+    replace le dernier pickomino de la pile d'un joueur et retourne(cache) le dernier pickomino sur la table de jeu
     '''
     print(erreur)
-    #print('HEREEEEEEEEEEEEEEE', indice_joueur)
     if liste_des_joueurs[indice][1] != []:
-        insertion(liste_des_joueurs[indice][1].pop())
-        #RePlacerDomino(liste_des_joueurs[indice_joueur][1].pop())
+        insertion(liste_des_joueurs[indice][1].pop(), jetons_en_jeu)
     RetourneDomino()
     
 
