@@ -65,6 +65,7 @@ def Joueuraleatoire():
         print('\nNombre de jetons retournes ' ,len(liste_jetons_retournes))
         #time.sleep(3)
         #os.system('cls')
+    AfficheJoueur(liste_des_joueurs)
     affiche_gagnant(gagnants(liste_des_joueurs))
 
 random.seed(3)
