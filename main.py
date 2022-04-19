@@ -68,6 +68,6 @@ def Joueuraleatoire():
     AfficheJoueur(liste_des_joueurs)
     affiche_gagnant(gagnants(liste_des_joueurs))
 
-random.seed(3)
+random.seed(4)
 Joueuraleatoire()
 
